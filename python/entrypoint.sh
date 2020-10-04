@@ -1,0 +1,1 @@
+cd /home/app && python3 main.py
