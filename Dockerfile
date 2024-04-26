@@ -12,3 +12,4 @@ RUN chown -R 1000:1000 /home
 USER 1000
 WORKDIR /home/app
 ENTRYPOINT ["/bin/bash", "/home/python/entrypoint.sh"]
+ENV PIP_BREAK_SYSTEM_PACKAGES 1

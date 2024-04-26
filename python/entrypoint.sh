@@ -1,5 +1,5 @@
 cd /home/app
-pip3 install -r requirements.txt
+[[ -f requirements.txt ]] && pip3 install -r requirements.txt
 python3 main.py
 
 if [ -f Procfile ]; then
