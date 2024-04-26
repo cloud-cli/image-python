@@ -1,32 +1,27 @@
-# Node.js image
+# Python base image
 
-This is a [Node.js](https://nodejs.org/) base image for [Cloudy](https://github.com/cloud-cli)
+This is a [Python](https://www.python.org/) base image for [Cloudy](https://github.com/cloud-cli)
 
 ## Usage
 
-Create a Dockerfile 
+Create a Dockerfile:
 
 ```Dockerfile
-FROM ghcr.io/cloud-cli/node
+FROM ghcr.io/cloud-cli/python
 ADD . /home/app
 ```
 
-Build an app
+Build the app:
 
 ```bash
 docker build -t app-image .
 docker run --rm app-image
 ```
 
-### As a static server
+## Zero-config
 
-Create a `superstatic.json` file to [add configurations](https://github.com/firebase/superstatic#configuration)
+The image expects `main.py` to be present in `/home/app` to start the application
 
-### As a Node.js app
+## Procfile
 
-Add an entry to `package.json` with the `main` field pointing to the app's entrypoint
-
-### Zero-config
-
-Having a `index.js` present is enough to start the app
-
+If a `Procfile` is present, [honcho](https://github.com/nickstenning/honcho) is used to start the processes.
